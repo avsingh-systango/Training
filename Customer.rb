@@ -26,6 +26,6 @@ cust1 = Customer.new("Id2", "Ravi", "Goa")
 cust1.show
 cust1.no_of_customer
 
-cust1 = Customer.new("Id3", "XYZ", "Bhopal") 
+cust1 = Customer.new("Id3", "XYZ", "Bhopal")
 cust1.show
 cust1.no_of_customer
