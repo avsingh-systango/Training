@@ -7,25 +7,25 @@ class Customer
 		@@no_of_customer += 1
 	end
 
-	def show()
+	def show
 		puts "Customer Id : #@cust_id"
 		puts "Customer Name : #@cust_name"
 		puts "Customer City : #@cust_city"
 	end
 
-	def noOfCustomer()
+	def no_of_customer
 		puts "Total no of customer : #@@no_of_customer"
 	end
 end
 
-cust1 = Customer.new("Id1", "Anurag", "Indore") 
-cust1.show()
-cust1.noOfCustomer()
+cust1 = Customer.new("Id1", "Anurag", "Indore")
+cust1.show
+cust1.no_of_customer
 
-cust1 = Customer.new("Id2", "Ravi", "Goa") 
-cust1.show()
-cust1.noOfCustomer()
+cust1 = Customer.new("Id2", "Ravi", "Goa")
+cust1.show
+cust1.no_of_customer
 
 cust1 = Customer.new("Id3", "XYZ", "Bhopal") 
-cust1.show()
-cust1.noOfCustomer()
+cust1.show
+cust1.no_of_customer
