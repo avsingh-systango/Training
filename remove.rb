@@ -8,7 +8,7 @@ class Array
           count += 1
         end
       end
-      if count < 2
+      if count < chars.length
         array_new.push(element)
       end
     end
