@@ -5,51 +5,33 @@
         <%= pluralize(@article.errors.count, "error") %> prohibited
         this article from being saved:
       </h2>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+         <% @article.errors.full_messages.each do |msg| %>
+          <li style="left-margin:'30%'"><%= msg %></li>  
+          <% end %>
     </div>
-  <% end %>
+   <% end %> 
+  
+ <table cellpadding="10">
+ <tr>
+    <td><%= f.label :title %></td>
+    <td><%= f.text_field :title %></td>
+ </tr>
  
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<% end %>
+  <tr>
+    <td><%= f.label :text %></td>
+    <td><%= f.text_area :text %></td>
+  </tr>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
- 
-<h2>Add a comment:</h2>
-<%= form_for([@article, @article.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
+  <tr>
+    <td><%= f.label :email %></td>
+    <td><%= f.text_area :email %></td>
+  </tr>
+  </table>
+
   <p>
     <%= f.submit %>
   </p>
+ 
 <% end %>
+<%= link_to 'Back', articles_path %>
+

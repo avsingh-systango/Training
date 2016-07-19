@@ -1,22 +1,28 @@
-<h1>Listing articles</h1>
- <%= link_to 'New article', new_article_path %>
-<table>
+<center><h1>Listing articles</h1>
+ <h3><%= link_to 'New article', new_article_path %></h3>
+<table cellpadding="10">
   <tr>
-    <th>Title</th>
-    <th>Text</th>
+  <th></th>
+    <th><h3>Titles</h3></th>
+    <th><h3>Texts</h3></th>
+    <th><h3>Email</h3></th>
   </tr>
- 
+  <% @var = 1 %>
   <% @articles.each do |article| %>
     <tr>
+      <td><%= @var %>).</td>
       <td><%= article.title %></td>
       <td ><%= article.text %></td>
+      <td ><%= article.email %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
       <td><%= link_to 'Destroy', article_path(article),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
+   <% @var += 1 %>
   <% end %>
-  <%= link_to 'Back', controller: 'welcome' %>
+ 
 </table>
-
+ <%= link_to 'Back', controller: 'welcome' %>
+</center>
