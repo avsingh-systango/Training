@@ -1,14 +1,40 @@
 <h1>Welcome <%=current_user.name%></h1>
 <% @loc = current_user.role.name%>
 
-<%=Geocoder.geocode("palasiya, India")%>
-<%= @loc.lat %>
+<table cellpadding="10">
+  <tr>
+  <th></th>
+    <th><h3>Name</h3></th>
+    <th><h3>Area</h3></th>
+    <th><h3>Contact no</h3></th>
+  </tr>
+  <% @var = 1 %>
+  <% @shops.each do |shop| %>
+    <tr>
+      <td><%= @var %>).</td>
+      <td><%= shop.name %></td>
+      <td><%= shop.area %></td>
+      <td><%= shop.contact %></td>
+      <td><%= link_to "show", shop_path(shop.id) %></td>
+      <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+      <td><%= link_to 'Destroy', shop_path(shop),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+   <% @var += 1 %>
+  <% end %>
+</table>
+
+
 <br>
 <br>
 <%= link_to 'Add New Shops', {:controller => 'shops', :action => 'new'} %>
 <br>
 <br>
-<%= link_to 'Add New Items', {:controller => 'users', :action => 'index'} %>
+<%= link_to 'Show Items', {:controller => 'items', :action => 'index'} %>
+<br>
+<br>
+<%= link_to 'Add New Items', {:controller => 'items', :action => 'new'} %>
 <br>
 <br>
 <%= link_to 'Analyse Hit Count', {:controller => 'users', :action => 'index'} %>

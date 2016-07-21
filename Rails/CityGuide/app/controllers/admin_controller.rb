@@ -2,6 +2,7 @@ class AdminController < ApplicationController
   
   def index
     check_user
+    @shops = Shop.all
   end
   def show
     check_user

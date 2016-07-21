@@ -1,12 +1,21 @@
 class ShopsController < ApplicationController
+  
   def index
   end
+  
   def new
     @shop = Shop.new
   end
+  
+  def show
+    @shop = Shop.find(params[:id])
+  end
+  
   def create
-
     @shop = Shop.new(shop_params)
+    loc = Geocoder.coordinates(@shop.area)
+    @shop.lat = loc.first
+    @shop.long = loc.last
     if @shop.save
       redirect_to admin_index_path
     else
@@ -15,6 +24,7 @@ class ShopsController < ApplicationController
   end
 
   private
+  
   def shop_params
 
     params.require(:shop).permit(:name, :area, :pin, :contact, :lat, :long)
