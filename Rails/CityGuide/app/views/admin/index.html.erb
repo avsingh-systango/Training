@@ -1,0 +1,14 @@
+<h1>Welcome <%=current_user.name%></h1>
+<% @loc = current_user.role.name%>
+
+<%=Geocoder.geocode("palasiya, India")%>
+<%= @loc.lat %>
+<br>
+<br>
+<%= link_to 'Add New Shops', {:controller => 'shops', :action => 'new'} %>
+<br>
+<br>
+<%= link_to 'Add New Items', {:controller => 'users', :action => 'index'} %>
+<br>
+<br>
+<%= link_to 'Analyse Hit Count', {:controller => 'users', :action => 'index'} %>

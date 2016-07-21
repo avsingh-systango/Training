@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  area: MyString
+  pin: 
+  contact: MyString
+  lat: MyString
+  long: MyString
+
+two:
+  name: MyText
+  area: MyString
+  pin: 
+  contact: MyString
+  lat: MyString
+  long: MyString
