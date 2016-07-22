@@ -10,6 +10,10 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
   end
+
+  def edit
+    @shop = Shop.find(params[:id])
+  end
   
   def create
     @shop = Shop.new(shop_params)
@@ -21,6 +25,21 @@ class ShopsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      redirect_to @shop
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy 
+    redirect_to admin_index_path
   end
 
   private

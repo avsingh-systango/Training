@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root "welcome#index"
   get 'welcome/index'
-  #post "shops/new"
   
   devise_for :users 
   resources :users 
