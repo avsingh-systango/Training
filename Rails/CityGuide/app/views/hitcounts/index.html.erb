@@ -1,31 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Hitcounts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Hitable</th>
-      <th>Hitable type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @hitcounts.each do |hitcount| %>
-      <tr>
-        <td><%= hitcount.user_id %></td>
-        <td><%= hitcount.hitable_id %></td>
-        <td><%= hitcount.hitable_type %></td>
-        <td><%= link_to 'Show', hitcount %></td>
-        <td><%= link_to 'Edit', edit_hitcount_path(hitcount) %></td>
-        <td><%= link_to 'Destroy', hitcount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Hitcount', new_hitcount_path %>
+<center><h1><u>Hitcounts</u></h1>
+<h2>Shop hits</h2>
+<%=render 'shophits'%>
+<h2>Item Hits</h2>
+<%=render 'itemhits'%>
+<%=render 'userhits'%>
+<center>
+<%=link_to 'Back', admin_index_path %>

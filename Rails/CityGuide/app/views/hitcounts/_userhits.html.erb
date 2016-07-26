@@ -1,0 +1,45 @@
+<h2>User Hits for Items</h2>
+<div>
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Users</th>
+      <th>Items</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hitcounts.where(hitable_type: "Item").select('distinct hitable_id','user_id').each do |hitcount| %>
+      <tr>
+        <td><%= User.find(hitcount.user_id).name %></td>
+        <td><%= Item.find(hitcount.hitable_id).name %></td>
+      <% end %>
+  </tbody>
+</table>
+<br>
+<div>
+
+
+
+<h2>User Hits for Shops</h2>
+<div>
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Users</th>
+      <th>Shops</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hitcounts.where(hitable_type: "Shop").select('distinct hitable_id','user_id').each do |hitcount| %>
+      <tr>
+        <td><%= User.find(hitcount.user_id).name %></td>
+        <td><%= Shop.find(hitcount.hitable_id).name %></td>
+        <td><%= Shop.find(hitcount.hitable_id).area %></td>
+      <% end %>
+  </tbody>
+</table>
+<br>
+<div>

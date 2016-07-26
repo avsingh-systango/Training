@@ -8,7 +8,11 @@ class ShopsController < ApplicationController
   end
   
   def show
-    @shop = Shop.find(params[:id])       
+    @shop = Shop.find(params[:id]) 
+    if current_user.role.name === "user"
+      @hitcount = current_user.hitcounts.new(hitable_id: @shop.id, hitable_type: "Shop")
+      @hitcount.save
+    end
   end
 
   def edit
@@ -17,7 +21,6 @@ class ShopsController < ApplicationController
   
   def create
     @shop = Shop.new(shop_params)
-    
     if !@shop.area.blank?
       loc = Geocoder.coordinates(@shop.area)
       @shop.lat = loc.first

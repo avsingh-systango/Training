@@ -1,0 +1,21 @@
+<div>
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Shop</th>
+      <th>Area</th>
+      <th>Hits</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hitcounts.where(hitable_type: "Shop").select('distinct hitable_id').each do |hitcount| %>
+      <tr>
+        <td><%= Shop.find(hitcount.hitable_id).name %></td>
+        <td><%= Shop.find(hitcount.hitable_id).area %></td>
+        <td><%= @hitcounts.where(hitable_id: hitcount.hitable_id, hitable_type: "Shop").count %></td>
+      <% end %>
+  </tbody>
+</table>
+<br>
+<div>

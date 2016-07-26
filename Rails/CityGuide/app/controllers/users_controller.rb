@@ -14,11 +14,5 @@ class UsersController < ApplicationController
       @hitcount.save
     end
   end
-
-  private
-
-  def hitcount_params
-     params.require(:hitcount).permit(:user_id, :hitable_id, :hitable_type)
-  end
-
+  
 end

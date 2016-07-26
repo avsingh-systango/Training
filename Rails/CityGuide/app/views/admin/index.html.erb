@@ -1,4 +1,4 @@
-<h1>Welcome <%=current_user.name%></h1>
+<center><h1><u>Welcome <%=current_user.name%></u></h1>
 <% @loc = current_user.role.name%>
 <%if @shops == nil%>
   No Shops are available
@@ -40,4 +40,5 @@
 <%= link_to 'Add New Items', {:controller => 'items', :action => 'new'} %>
 <br>
 <br>
-<%= link_to 'Analyse Hit Count', {:controller => 'users', :action => 'index'} %>
+<%= link_to 'Analyse Hit Count', {:controller => 'hitcounts', :action => 'index'} %>
+</center>

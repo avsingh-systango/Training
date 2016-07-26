@@ -1,7 +1,8 @@
+<center>
 <table cellpadding="10">
   <tr>
   <th></th>
-    <th><h3>Items</h3></th>
+    <th><h1><u>Items</u></h1></th>
   </tr>
   <% @var = 1 %>
   <% @items.each do |item| %>
@@ -26,4 +27,9 @@
 <%= link_to 'Add New Items', {:controller => 'items', :action => 'new'} %>
 <br>
 <br>
-<%= link_to 'Analyse Hit Count', {:controller => 'users', :action => 'index'} %>
+<%= link_to 'Analyse Hit Count', {:controller => 'hitcounts', :action => 'index'} %>
+<br>
+<br>
+
+  <%=link_to 'Back', admin_index_path %>
+</center>
