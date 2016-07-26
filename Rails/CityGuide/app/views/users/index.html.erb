@@ -1,1 +1,17 @@
-hello user
+<% if status == "0" %>
+ Not Found ,Try Again
+ <%end%>
+
+<center>
+  <h1>search page</h1>
+
+  <%= form_tag(controller: "users", action: "show", method: "get") do %>
+    <%= label_tag(:item, "Search for:") %>
+    <%= text_field_tag(:item) %>
+    <br>
+    <%= label_tag(:area, "Area:") %>
+    <%= text_field_tag(:area) %>
+    <br>
+    <%= submit_tag("Search") %>
+  <% end %>
+</center>

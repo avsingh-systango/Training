@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721152713) do
+ActiveRecord::Schema.define(version: 20160725132403) do
+
+  create_table "hitcounts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "hitable_id"
+    t.string   "hitable_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -54,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160721152713) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.text     "name"
-    t.integer  "role_id"
+    t.integer  "role_id",                default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"

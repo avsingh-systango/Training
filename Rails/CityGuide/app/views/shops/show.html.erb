@@ -1,21 +1,5 @@
-<head>
-  <script>
-    var doc=document.getElementById("demo");
-    function showPosition(){
-      var latlon=<%=@shop.lat%>+","+<%=@shop.long%>;
-      var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
-                  +latlon+"&zoom=15&size=600x400&sensor=false";
-      document.getElementById("map").innerHTML="<img src='"+img_url+"'>";
-    }
-  
-  $( document ).ready(function() {
-    showPosition();
-  });
-
-  </script>
-</head>
-<body>
-  <center>
+<center>
+    
     <h1><u>Shop</u></h1>
 
     <p>
@@ -40,7 +24,9 @@
     
     <br>
     <br>
-    
-    <div id="map"></div>
-  <center>
-</body>
+
+    <div>
+      <%=render 'showmap'%>
+    </div>
+
+ <center>

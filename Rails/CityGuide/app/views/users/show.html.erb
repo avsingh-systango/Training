@@ -1,2 +1,38 @@
-<h1>Welcome <%=current_user.name%>
-<%=current_user.role.name%>
+<h1>Search Results</h1>
+
+<%if @item == nil%>
+  Result Not Found
+<%else%>
+  <p>
+    <strong>Search Query For Item:</strong>
+    <%=@item.name %>
+  </p>    
+
+  <table cellpadding="10">
+    <tr>
+      <th></th>
+      <th><h3>Shop Name</h3></th>
+      <th><h3>Area</h3></th>
+      <th><h3>Contact no</h3></th>
+      <th><h3>From You in Kms</h3></th>
+
+    </tr>
+    <% @count = 1 %>
+    <% @item.shops.near(@area, 10, :units => :km).each do |shop| %>
+      <tr>
+        <td><%= @count %>).</td>
+        <td><%= shop.name %></td>
+        <td><%= shop.area %></td>
+        <td><%= shop.contact %></td>
+        <td><%= Geocoder::Calculations.distance_between(@area,[shop.lat,shop.long],:units  => :km, :method =>:spherical ).round(2) %></td>
+        <td><%= link_to "show", shop_path(shop.id) %></td>
+      </tr>
+    <% @count += 1 %>
+  <% end %>
+
+  <%if @count == 1%>
+    Item not available within 10 km range
+  <%end%>
+
+  </table>
+<%end%>

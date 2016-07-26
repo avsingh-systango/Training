@@ -1,0 +1,34 @@
+<center>
+  <h1><u>Item</u></h1>
+
+  <p>
+    <strong>Name:</strong>
+    <%=@item.name %>
+  </p>    
+
+  <table cellpadding="10">
+    <tr>
+      <th></th>
+      <th><h3>Name</h3></th>
+      <th><h3>Area</h3></th>
+      <th><h3>Contact no</h3></th>
+    </tr>
+    <% @var = 1 %>
+    <% @item.shops.each do |shop| %>
+    <tr>
+      <td><%= @var %>).</td>
+      <td><%= shop.name %></td>
+      <td><%= shop.area %></td>
+      <td><%= shop.contact %></td>
+      <td><%= link_to "show", shop_path(shop.id) %></td>
+      <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+      <td><%= link_to 'Destroy', shop_path(shop),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% @var += 1 %>
+  <% end %>
+  </table>
+    
+  <center>
+</body>

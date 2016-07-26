@@ -1,0 +1,29 @@
+<table cellpadding="10">
+  <tr>
+  <th></th>
+    <th><h3>Items</h3></th>
+  </tr>
+  <% @var = 1 %>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= @var %>).</td>
+      <td><%= item.name %></td>
+      <td><%= link_to "Show Shops", item_path(item.id) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item.id) %></td>
+      <td><%= link_to 'Destroy', item_path(item),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+   <% @var += 1 %>
+  <% end %>
+</table>
+
+<br>
+<br>
+<%= link_to 'Add New Shops', {:controller => 'shops', :action => 'new'} %>
+<br>
+<br>
+<%= link_to 'Add New Items', {:controller => 'items', :action => 'new'} %>
+<br>
+<br>
+<%= link_to 'Analyse Hit Count', {:controller => 'users', :action => 'index'} %>

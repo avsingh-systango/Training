@@ -1,0 +1,28 @@
+<%= form_for @item do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@item.errors.count, "error") %> prohibited
+                                      this item from being saved:
+      </h2>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li style="left-margin:'30%'"><%= msg %></li>  
+      <% end %>
+    </div>
+   <% end %> 
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <h2>Select Shops</h2>
+  <li>
+    <%= f.collection_check_boxes(:shop_ids, Shop.all, :id, :name ) %>
+  </li>
+   
+  <p>
+    <%= f.submit %>
+  </p>
+  
+<% end %>

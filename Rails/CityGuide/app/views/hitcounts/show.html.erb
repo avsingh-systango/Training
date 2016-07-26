@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @hitcount.user_id %>
+</p>
+
+<p>
+  <strong>Hitable:</strong>
+  <%= @hitcount.hitable_id %>
+</p>
+
+<p>
+  <strong>Hitable type:</strong>
+  <%= @hitcount.hitable_type %>
+</p>
+
+<%= link_to 'Edit', edit_hitcount_path(@hitcount) %> |
+<%= link_to 'Back', hitcounts_path %>

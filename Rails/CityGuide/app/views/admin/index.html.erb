@@ -1,5 +1,8 @@
 <h1>Welcome <%=current_user.name%></h1>
 <% @loc = current_user.role.name%>
+<%if @shops == nil%>
+  No Shops are available
+<%else%>
 
 <table cellpadding="10">
   <tr>
@@ -25,7 +28,7 @@
   <% end %>
 </table>
 
-
+<% end %>
 <br>
 <br>
 <%= link_to 'Add New Shops', {:controller => 'shops', :action => 'new'} %>
