@@ -25,7 +25,6 @@ class HitcountsController < ApplicationController
   # POST /hitcounts.json
   def create
     @hitcount = Hitcount.new(hitcount_params)
-
     respond_to do |format|
       if @hitcount.save
         format.html { redirect_to @hitcount, notice: 'Hitcount was successfully created.' }

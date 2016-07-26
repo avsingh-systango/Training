@@ -9,14 +9,15 @@
   </p>    
 
   <table cellpadding="10">
+
     <tr>
       <th></th>
       <th><h3>Shop Name</h3></th>
       <th><h3>Area</h3></th>
       <th><h3>Contact no</h3></th>
       <th><h3>From You in Kms</h3></th>
-
     </tr>
+
     <% @count = 1 %>
     <% @item.shops.near(@area, 10, :units => :km).each do |shop| %>
       <tr>
