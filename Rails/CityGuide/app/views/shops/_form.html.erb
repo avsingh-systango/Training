@@ -1,4 +1,4 @@
-<%= form_for @shop do |f| %>
+<%= bootstrap_form_for @shop do |f| %>
   <% if @shop.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -10,31 +10,13 @@
           <% end %>
     </div>
    <% end %> 
-
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.label :area %><br>
-    <%= f.text_area :area %>
-  </p>
-
-  <p>
-    <%= f.label :pin %><br>
-    <%= f.number_field :pin%>
-  </p>
-
-  <p>
-    <%= f.label :contact %><br>
-    <%= f.telephone_field :contact%>
-  </p>
-
+   
+  <%= f.text_field :name %>
+  <%= f.text_area :area %>
+  <%= f.number_field :pin%> 
+  <%= f.telephone_field :contact%>
   <%= f.hidden_field :lat%>
   <%= f.hidden_field :long%>
+  <%= f.submit %>
  
-  <p>
-    <%= f.submit %>
-  </p>
 <% end %>

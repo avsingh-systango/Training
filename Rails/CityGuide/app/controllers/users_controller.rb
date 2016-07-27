@@ -6,13 +6,13 @@ class UsersController < ApplicationController
   end
   
   def show
-    @item = Item.where('lower(name) = ?', params[:item].downcase).take
-    @area = params[:area]
-    if @item == nil
-      render 'index', locals: {status: "0"}
-    else
+    begin
+      @item = Item.where('lower(name) = ?', params[:item].downcase).take
+      @area = params[:area]
       @hitcount = current_user.hitcounts.new(hitable_id: @item.id, hitable_type: "Item")
       @say = @hitcount.save
+    rescue
+       render 'index', locals: {status: "0"}
     end
   end
 

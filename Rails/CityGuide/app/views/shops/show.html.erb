@@ -1,32 +1,39 @@
 <center>
-    
+  
+  <div class="page-header">
     <h1><u>Shop</u></h1>
+  </div>
 
-    <p>
-      <strong>Name:</strong>
-      <%= @shop.name %>
-    </p>
-    
-    <p>
-      <strong>Area:</strong>
-      <%= @shop.area %>
-    </p>
-    
-    <p>
-      <strong>Pin:</strong>
-      <%= @shop.pin %>
-    </p>
-    
-    <p>
-      <strong>Contact No:</strong>
-      <%= @shop.contact %>
-    </p>
-    
-    <br>
-    <br>
+<div style = "padding-right: 30%; padding-left: 30%;">
+  <table class="table">
+    <tr>
+      <td><strong>Name:<strong></td>
+      <td><%= @shop.name %></td>
+    </tr>
 
-    <div>
-      <%=render 'showmap'%>
-    </div>
+    <tr>
+      <td><strong>Area:<strong></td>
+      <td><%= @shop.area %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Pin:<strong></td>
+      <td><%= @shop.pin %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Contact No:<strong></td>
+      <td><%= @shop.contact %></td>
+    </tr>
+  </table>
+</div>
+     
+  <br>
+  <br>
+
+  
 
  <center>
+<div class="container" style = "width:auto; height:auto; right-margin: 10%; ">
+    <%=render 'showmap'%>
+</div>

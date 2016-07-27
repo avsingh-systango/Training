@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
-<center><h1><u>Hitcounts</u></h1>
-<h2>Shop hits</h2>
-<%=render 'shophits'%>
-<h2>Item Hits</h2>
-<%=render 'itemhits'%>
-<%=render 'userhits'%>
-<center>
-<%=link_to 'Back', admin_index_path %>
+<div class="container" style = "width:auto; height:auto; right-margin: 30%; ">
+  <p id="notice"><%= notice %></p>
+  <center><h1><u>Hitcounts</u></h1>
+    <h2>Shop hits</h2>
+    <%=render 'shophits'%>
+    <h2>Item Hits</h2>
+    <%=render 'itemhits'%>
+    <%=render 'userhits'%>
+  </center>
+  <%=link_to 'Back', admin_index_path %>
+</div>

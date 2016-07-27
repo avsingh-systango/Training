@@ -1,24 +1,21 @@
-<center>
-<table cellpadding="10">
-  <tr>
-  <th></th>
-    <th><h1><u>Items</u></h1></th>
-  </tr>
+
+<h1><u>Items</u></h1>
+<table cellpadding="10" class = "table" style="left-margin:30%;">
   <% @var = 1 %>
   <% @items.each do |item| %>
     <tr>
       <td><%= @var %>).</td>
       <td><%= item.name %></td>
-      <td><%= link_to "Show Shops", item_path(item.id) %></td>
-      <td><%= link_to 'Edit', edit_item_path(item.id) %></td>
-      <td><%= link_to 'Destroy', item_path(item),
+      <td class="label label-success"><%= link_to "Show Shops", item_path(item.id) %></td>
+      <td class = "label label-warning"><%= link_to 'Edit', edit_item_path(item.id) %></td>
+      <td class = "label label-danger"><%= link_to 'Destroy', item_path(item),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
    <% @var += 1 %>
   <% end %>
 </table>
-
+<center>
 <br>
 <br>
 <%= link_to 'Add New Shops', {:controller => 'shops', :action => 'new'} %>
@@ -32,4 +29,4 @@
 <br>
 
   <%=link_to 'Back', admin_index_path %>
-</center>
+  </center>

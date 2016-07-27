@@ -1,15 +1,17 @@
 <center><h1><u>Welcome <%=current_user.name%></u></h1>
+<div class = "row"></div>
 <% @loc = current_user.role.name%>
 <%if @shops == nil%>
   No Shops are available
 <%else%>
 
-<table cellpadding="10">
+<table class = "table" style="padding-right: 30%; padding-left: 30%;">
   <tr>
   <th></th>
-    <th><h3>Name</h3></th>
-    <th><h3>Area</h3></th>
-    <th><h3>Contact no</h3></th>
+    <th><h3> Name </h3></th>
+    <th><h3> Area </h3></th>
+    <th><h3> Contact no </h3></th>
+    <th><h3> Actions..... </h3></th>
   </tr>
   <% @var = 1 %>
   <% @shops.each do |shop| %>
@@ -18,9 +20,9 @@
       <td><%= shop.name %></td>
       <td><%= shop.area %></td>
       <td><%= shop.contact %></td>
-      <td><%= link_to "show", shop_path(shop.id) %></td>
-      <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-      <td><%= link_to 'Destroy', shop_path(shop),
+      <td class="label label-success"><%= link_to "show", shop_path(shop.id) %></td>
+      <td class = "label label-warning"><%= link_to 'Edit', edit_shop_path(shop) %></td>
+      <td class = "label label-danger"><%= link_to 'Destroy', shop_path(shop) ,
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
