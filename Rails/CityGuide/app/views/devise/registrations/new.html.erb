@@ -2,12 +2,12 @@
   <h1 class="style1">Sign up</h1>
 
 
-     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
      <%= devise_error_messages! %>
 
      <div class="field">
         
-        <%= f.label :name,autofocus: true %>
+        <%#= f.label :name,autofocus: true %>
         <% if @minimum_name_length %>
         <em>(<%= @minimum_name_length %> characters minimum)</em>
         <% end %>
@@ -16,21 +16,22 @@
 
       <div class="field">
         
-        <%= f.label :email %>
+        <%#= f.label :email %>
         <%= f.email_field :email%>
       </div>
 
       <div class="field">
         
-        <%= f.label :password %>
+        <%#= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off" %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, autocomplete: "off" %>
+        
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %>
+        <%#= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
